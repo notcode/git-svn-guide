@@ -32,7 +32,7 @@
         <p>
            This guide is just for the people who can't abandon subversion 
            but still want to benifit from git.<br/>
-           If you have no idea about git,this <a href="http://rogerdudler.github.io/git-guide/">git guide</a> can help.
+           If you have no idea about git, this <a href="http://rogerdudler.github.io/git-guide/">git guide</a> can help.
         </p>
     </div>
     <a name=checkout></a>
@@ -43,12 +43,8 @@
             <code>git svn clone &lt;svn_repo_url&gt;</code><br/>
         </p>
         <p>
-            For the repo in standard layout,which means it has trunk, branches and tags sub-dirs, use<br>
+            For the repo in standard layout, which has trunk, branches and tags sub-dirs, use<br>
             <code>git svn clone -s &lt;svn_repo_url&gt;</code> <br/>
-            <!--
-            which is equivalent to <br/>
-            <code>git svn clone -T trunk -b branches -t tags &lt;svn_repo_url&gt;</code>
-            -->
         </p>
     </div>
     <div class="scrollblock block-add">
@@ -58,43 +54,43 @@
             <code>git add &lt;filename&gt;</code><br/>
             And then commit changes by<br/>
             <code>git commit -m "Commit message"</code><br/>
-            Now all changes are commited to local git repo,but not in remote svn repo yet.
+            Now all changes are commited to local git repo, but not in remote svn repo yet.
         </p>
     </div>
     <div class="scrollblock block-remote">
         <h2>commit to svn</h2>
         <p>
-            Remember that,we used to run <b>svn up</b> before <b>svn ci</b>,in case of confilt.<br/>
+            Remember that, we used to run <b>svn up</b> before <b>svn ci</b>, in case of confilt.<br/>
         </p>
         <p>
-            Similarly before commiting to svn,launch <br/>
+            Similarly before commiting to svn, launch <br/>
             <code>git svn rebase</code><br/>
-            this will pull down all changes in svn server,and patch your local changes to it<br/>
+            This will pull down all changes in svn server, and patch your local changes to it<br/>
         </p>
         <p>
-            Now we can push changes to remote svn repo.launch the commit <br/>
+            Now we can push changes to remote svn repo. Launch the commit <br/>
             <code>git svn dcommit</code><br/>
         </p>
     </div>
     <div class="scrollblock block-branching">
         <h2>branching to svn</h2>
         <p>
-            To create a svn branch,we can use <br/>
+            To create a svn branch, we can use <br/>
             <code>git svn branch &lt;branch_name&gt;</code><br/>
-            New branches will be created under <b>branches</b> directory,if specified <b>-s</b> in <b>git svn clone</b>
+            New branches will be created under <b>branches</b> directory, if specified <i><b>-s</b></i> in <i><b>git svn clone</b></i>
         </p>
         <p>
             Then create a local working branch by running<br/>
             <code>git branch branch_name remotes/branch_name</code><br/>
-            now we can work in this branch and <b>svn dcommit/svn rebase</b> will effect the remote svn branch
+            Now we can work in this branch and <b>svn dcommit/svn rebase</b> will effect the remote svn branch
         </p>
     </div>
     <div class="scrollblock block-tagging">
         <h2>tagging to svn</h2>
         <p>
-            To create a svn tag,we can use <br/>
+            To create a svn tag, we can use <br/>
             <code>git svn tag &lt;tag_name&gt;</code><br/>
-            The same as branching,new tags will be created under tags directory.
+            The same as branching, new tags will be created under tags directory.
         </p>
     </div>
     <div class="scrollblock block-resources">
