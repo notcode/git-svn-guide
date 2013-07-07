@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>git - the simple guide - no deep shit!</title>
+    <link href='http://fonts.googleapis.com/css?family=Chelsea+Market' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+    <div class="scrollblock block-title">
+        <h1>git svn - the simple guide</h1>
+        <p>
+            a simple guide of git svn. no deep shit ;)
+        </p>
+        <p class="meta">
+            by <a href="http://www.twitter.com/garfee">garfee</a><br/>
+            inspired by <a href=http://www.twitter.com/rogerdudler">Roger Dudler</a>'s <a href="http://rogerdudler.github.io/git-guide/index.html">git guide</a><br/>
+            this guide in 
+            <a href="index.zh.html">中文</a> is coming soon, <br />
+            please report issues on <a href="https://github.com/garfee/git-svn-guide/issues">github</a>
+        </p>
+        <img src="img/arrow.png" alt="" />
+    </div>
+    <!-- setup -->
+    <a name=purpose></a>
+    <div class="scrollblock block-create" >
+        <h2>preface</h2>
+        <p>
+           This guide is just for the people who can't abandon subversion 
+           but still want to benifit from git.<br/>
+           If you have no idea about git,this <a href="http://rogerdudler.github.io/git-guide/">git guide</a> can help.
+        </p>
+    </div>
+    <a name=checkout></a>
+    <div class="scrollblock block-setup" >
+        <h2>checkout a svn repo</h2>
+        <p>
+            Checkout a svn repository by running the command <br/>
+            <code>git svn clone &lt;svn_repo_url&gt;</code><br/>
+        </p>
+        <p>
+            For the repo in standard layout,which means it has trunk, branches and tags sub-dirs, use<br>
+            <code>git svn clone -s &lt;svn_repo_url&gt;</code> <br/>
+            <!--
+            which is equivalent to <br/>
+            <code>git svn clone -T trunk -b branches -t tags &lt;svn_repo_url&gt;</code>
+            -->
+        </p>
+    </div>
+    <div class="scrollblock block-add">
+        <h2>add &amp; commit locally</h2>
+        <p>
+            Here we can work on local git repository and add changes to <b>Staging Area</b> by<br/>
+            <code>git add &lt;filename&gt;</code><br/>
+            And then commit changes by<br/>
+            <code>git commit -m "Commit message"</code><br/>
+            Now all changes are commited to local git repo,but not in remote svn repo yet.
+        </p>
+    </div>
+    <div class="scrollblock block-remote">
+        <h2>commit to svn</h2>
+        <p>
+            Remember that,we used to run <b>svn up</b> before <b>svn ci</b>,in case of confilt.<br/>
+        </p>
+        <p>
+            Similarly before commiting to svn,launch <br/>
+            <code>git svn rebase</code><br/>
+            this will pull down all changes in svn server,and patch your local changes to it<br/>
+        </p>
+        <p>
+            Now we can push changes to remote svn repo.launch the commit <br/>
+            <code>git svn dcommit</code><br/>
+        </p>
+    </div>
+    <div class="scrollblock block-branching">
+        <h2>branching to svn</h2>
+        <p>
+            To create a svn branch,we can use <br/>
+            <code>git svn branch &lt;branch_name&gt;</code><br/>
+            New branches will be created under <b>branches</b> directory,if specified <b>-s</b> in <b>git svn clone</b>
+        </p>
+        <p>
+            Then create a local working branch by running<br/>
+            <code>git branch branch_name remotes/branch_name</code><br/>
+            now we can work in this branch and <b>svn dcommit/svn rebase</b> will effect the remote svn branch
+        </p>
+    </div>
+    <div class="scrollblock block-tagging">
+        <h2>tagging to svn</h2>
+        <p>
+            To create a svn tag,we can use <br/>
+            <code>git svn tag &lt;tag_name&gt;</code><br/>
+            The same as branching,new tags will be created under tags directory.
+        </p>
+    </div>
+    <div class="scrollblock block-resources">
+        <h2>resources</h2>
+        <p>
+            <ul>
+            <li><a href="http://rogerdudler.github.io/git-guide/">Git Guide</a></li>
+            <li><a href="http://git-scm.com/book/en/Git-and-Other-Systems-Git-and-Subversion">The Git and Subversion Chapter in Pro Git</a></li>
+            </ul>
+        </p>
+    </div>
+</body>
+</html>
